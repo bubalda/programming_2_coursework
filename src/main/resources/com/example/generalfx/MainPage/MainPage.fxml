@@ -3,10 +3,12 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
 
 <!---->
 
-<BorderPane stylesheets="MainPage.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.generalfx.MainController">
+<?import org.kordamp.ikonli.javafx.StackedFontIcon?>
+<BorderPane stylesheets="MainPage.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.generalfx.Controllers.MainPageController">
 
     <top>
         <HBox spacing="10">
@@ -25,12 +27,16 @@
             <Label text="Redeem" />
 
             <!--Normal search bar dynamic, search content (array?)-->
-            <Label text="Search" />
+            <Label text="Search icon" />
+            <TextField text="What's on your mind today?" onKeyTyped="#search"/> <!--Greyish-->
 
-            <!--Cart and checkout-->
-            <Label text="Cart Icon" />
+            <!--Cart and checkout (Red popups)-->
+            <Label text="Cart Icon" onMouseClicked="#redirectToCart"/>
 
             <!--Dropdown to settings, logout and account profile wallet-->
+            <StackedFontIcon>
+                <FontIcon iconLiteral="di-java" iconSize="64"/>
+            </StackedFontIcon>
             <Label text="Account Icon" />
         </HBox>
     </top>
