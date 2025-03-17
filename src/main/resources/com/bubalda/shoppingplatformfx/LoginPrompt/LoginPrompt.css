@@ -1,0 +1,58 @@
+#registerLink {
+    -fx-text-fill: #dca70b;
+    -fx-underline: true;
+}
+
+#registerLink:hover {
+    -fx-border-color: #dca70b;
+}
+
+.reportInfo {
+    -fx-visibility: hidden;
+    -fx-text-fill: red;
+}
+
+.mainVBox {
+    -fx-padding: 20;
+    -fx-max-width: 400;
+    -fx-alignment: CENTER;
+    -fx-spacing: 20;
+}
+
+#loginBtn {
+    -fx-font-weight: bold;
+    -fx-max-width: "INFINITY";
+}
+.pageButton {
+    -fx-text-fill: #ffffff;
+    -fx-background-color: #f1bd02;
+    -fx-min-height: 35;
+}
+.pageButton:hover {
+    -fx-background-color: #e4a30a;
+}
+
+.pageButton:pressed {
+    -fx-background-color: #d8990a;
+}
+
+#root {
+    -fx-background-color: #fff1a9;
+    -fx-font-size: 15;
+    -fx-min-width: 800;
+}
+
+.textBoxes {
+    -fx-min-width: 350px;
+}
+.textBoxes:focused {
+    -fx-border-color: #fdc900;
+    -fx-faint-focus-color: #fdc900;
+}
+
+#registerBox {
+    -fx-opacity: 0;
+    visibility: false;
+    -fx-alignment: CENTER;
+    -fx-spacing: 40;
+}

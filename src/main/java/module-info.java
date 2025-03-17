@@ -1,21 +1,20 @@
-module com.example.generalfx {
-    requires javafx.controls;
-    requires javafx.fxml;
-    requires javafx.base;
-    requires javafx.graphics;
+module com.bubalda.shoppingplatformfx {
+        requires javafx.controls;
+        requires javafx.fxml;
+        requires javafx.base;
+        requires javafx.graphics;
 
-    requires org.controlsfx.controls;
-    requires com.dlsc.formsfx;
-    requires net.synedra.validatorfx;
-    requires org.kordamp.ikonli.javafx;
-    requires org.kordamp.bootstrapfx.core;
-    requires org.xerial.sqlitejdbc;
-    requires annotations;
+//        requires org.controlsfx.controls;
+//        requires com.dlsc.formsfx;
+//        requires net.synedra.validatorfx;
+        requires org.kordamp.ikonli.javafx;
+//        requires org.kordamp.bootstrapfx.core;
+        requires org.kordamp.ikonli.core;
+        requires org.xerial.sqlitejdbc;
+        requires java.sql;
 
-    opens com.example.generalfx to javafx.fxml;
-    exports com.example.generalfx;
-    exports com.example.generalfx.Controllers;
-    opens com.example.generalfx.Controllers to javafx.fxml;
-
-    requires org.kordamp.ikonli.core;
+        opens com.bubalda.shoppingplatformfx to javafx.fxml;
+        exports com.bubalda.shoppingplatformfx;
+        exports com.bubalda.shoppingplatformfx.Controllers;
+        opens com.bubalda.shoppingplatformfx.Controllers to javafx.fxml;
 }

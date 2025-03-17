@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.Insets?>
+<BorderPane fx:id="root" stylesheets="@LoginPrompt.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bubalda.shoppingplatformfx.Controllers.LoginPromptController">
+    <center>
+        <StackPane>
+            <HBox fx:id="registerBox"> <!-- Register Page (Initially Hidden) -->
+                <ImageView fx:id="logo2" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                    <Image url="@../images/logo.png" />
+                </ImageView>
+
+                <VBox styleClass="mainVBox" alignment="CENTER_LEFT" spacing="15">
+                    <Label text="Register" style="-fx-font-size: 25; -fx-font-weight: bold"/>
+                    <VBox spacing="5">
+                        <Label text="Enter New Username:" />
+                        <TextField fx:id="registerUsername" text="Admin" styleClass="textBoxes"/>
+                    </VBox>
+
+                    <VBox spacing="5">
+                        <Label text="Enter New Password:" />
+                        <PasswordField fx:id="registerPassword" text="Password" styleClass="textBoxes"/>
+                    </VBox>
+
+                    <VBox spacing="5">
+                        <Label text="Confirm New Password:" />
+                        <PasswordField fx:id="confirmPassword" text="Password" styleClass="textBoxes"/>
+                    </VBox>
+
+                    <HBox spacing="5" alignment="CENTER">
+                        <Button text="Sign Up" onAction="#registerNewAccount" styleClass="pageButton"/>
+                        <Button text="Back to Login" onAction="#switchToLogin" styleClass="pageButton"/>
+                    </HBox>
+
+                    <Label fx:id="registerInfo" styleClass="reportInfo"/>
+                </VBox>
+            </HBox>
+
+            <!--Forgot password here? Later first-->
+
+            <VBox fx:id="loginBox" styleClass="mainVBox"> <!--Login Box-->
+                <ImageView fx:id="logo" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                    <Image url="@../images/logo.png" />
+                </ImageView>
+
+                <VBox spacing="5">
+                    <Label text="Username:" />
+                    <TextField fx:id="loginUsername" text="Admin" styleClass="textBoxes"/>
+                </VBox>
+
+                <VBox spacing="5">
+                    <Label text="Password:" />
+                    <PasswordField fx:id="loginPassword" text="Password" styleClass="textBoxes"/>
+                </VBox>
+                <!--Cloudflare?-->
+
+                <!-- Login Button and Error | Forgot password? Remember me-->
+                <Button fx:id="loginBtn" onAction="#authenticateUser" text="Login" styleClass="pageButton"/>
+                <!--See this https://stackoverflow.com/questions/30680570/javafx-button-border-and-hover-->
+
+                <VBox spacing="5" alignment="CENTER">
+                    <HBox alignment="CENTER">
+                        <Label text="Don't have an account yet? " />
+                        <Label fx:id="registerLink" onMouseClicked="#switchToRegister" text="Create one now here!" />
+                    </HBox>
+                    <Label fx:id="loginInfo" styleClass="reportInfo"/>
+                </VBox>
+            </VBox>
+        </StackPane>
+    </center>
+</BorderPane>

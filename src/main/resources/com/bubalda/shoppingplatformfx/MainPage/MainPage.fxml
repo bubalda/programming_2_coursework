@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import org.kordamp.ikonli.javafx.*?>
+
+<!---->
+
+<BorderPane stylesheets="@MainPage.css" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bubalda.shoppingplatformfx.Controllers.MainPageController">
+    <top>
+        <VBox alignment="CENTER" spacing="10">
+            <HBox alignment="CENTER" spacing="100" style="-fx-border-color: black">
+                <!--Dashboard, Stay on top even when scrolled, minimize to left for android-->
+                <ImageView fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                    <Image url="@../images/logo.png" />
+                </ImageView>
+
+                <!--Some sales (link down, no need new pages / or like Lazada)-->
+                <Label text="Promotions" />
+
+                <!--For you, Recently bought, and other products, Categories-->
+                <Label text="Products" />
+
+                <!--Current points, Mcd refer-->
+                <Label text="Redeem" />
+
+                <StackPane alignment="CENTER_RIGHT">
+                    <!--Normal search bar dynamic, search content (array?)-->
+                    <TextField fx:id="searchBar" onKeyTyped="#search" promptText="What's on your mind today?" /> <!--Greyish-->
+                    <FontIcon iconLiteral="bi-search" translateX="-10" />
+                </StackPane>
+
+                <!--Cart and checkout (Red popups)-->
+                <Label onMouseClicked="#redirectToCart" alignment="CENTER_RIGHT">
+                    <graphic>
+                        <FontIcon iconLiteral="bi-cart2" iconSize="25"/>
+                    </graphic>
+                </Label>
+
+                <!--Dropdown to settings, logout and account profile wallet-->
+
+                <MenuButton text="Accounts" alignment="CENTER_RIGHT">
+                    <graphic>
+                        <FontIcon iconLiteral="bi-person-fill" iconSize="25" />
+                    </graphic>
+                    <items>
+                        <MenuItem text="Account"/>
+                        <MenuItem text="Settings"/>
+                        <MenuItem text="Logout" onAction="#redirectToLogin"/>
+                    </items>
+                </MenuButton>
+            </HBox>
+
+            <ImageView fitHeight="300.0" pickOnBounds="true" preserveRatio="true">
+                <Image url="@../images/banner.png" /> <!--Slideshow-->
+            </ImageView>
+        </VBox>
+    </top>
+
+   <center>
+
+   </center>
+</BorderPane>
