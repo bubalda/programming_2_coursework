@@ -1,5 +1,6 @@
 package com.bubalda.shoppingplatformfx;
 
+import com.bubalda.shoppingplatformfx.Controllers.MainPageController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -16,8 +17,6 @@ public class GeneralFX extends Application {
         stage.setMaximized(wasMaximized);
 
         stage.setTitle("Shopping Platform");
-        stage.setMinWidth(1380);
-        stage.setMinHeight(780);
         stage.centerOnScreen();
 
 //        stage.setMaximized(true);
@@ -31,7 +30,8 @@ public class GeneralFX extends Application {
 
         SceneManager sceneManager = SceneManager.getInstance();
         sceneManager.setPrimaryStage(stage);
-        sceneManager.showScene("login"); // For sceneKeys refer to SceneManager.java
+        sceneManager.userID = 1; // TODO: Fast login, delete afterwards
+        sceneManager.showScene("main"); // For sceneKeys refer to SceneManager.java
     }
 
     public static void main(String[] args) {

@@ -1,20 +1,22 @@
-#registerLink {
+.linkLabel {
     -fx-text-fill: #dca70b;
     -fx-underline: true;
 }
 
-#registerLink:hover {
+.linkLabel:hover {
     -fx-border-color: #dca70b;
 }
 
 .reportInfo {
+    -fx-text-alignment: center;
     -fx-visibility: hidden;
     -fx-text-fill: red;
+    -fx-wrap-text: true;
 }
 
 .mainVBox {
     -fx-padding: 20;
-    -fx-max-width: 400;
+    -fx-max-width: 33%;
     -fx-alignment: CENTER;
     -fx-spacing: 20;
 }
@@ -36,21 +38,12 @@
     -fx-background-color: #d8990a;
 }
 
-#root {
-    -fx-background-color: #fff1a9;
-    -fx-font-size: 15;
-    -fx-min-width: 800;
-}
+/*.Root {*/
+/*    -fx-background-color: #fff1a9;*/
+/*    -fx-font-size: 15;*/
+/*}*/
 
-.textBoxes {
-    -fx-min-width: 350px;
-}
-.textBoxes:focused {
-    -fx-border-color: #fdc900;
-    -fx-faint-focus-color: #fdc900;
-}
-
-#registerBox {
+#registerBox, #forgotBox {
     -fx-opacity: 0;
     visibility: false;
     -fx-alignment: CENTER;

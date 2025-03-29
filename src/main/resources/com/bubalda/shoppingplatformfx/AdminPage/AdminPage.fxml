@@ -5,10 +5,44 @@
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
+<?import com.sun.javafx.scene.control.ContextMenuContent.MenuBox?>
+<?import javafx.geometry.Insets?>
+<BorderPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="com.bubalda.shoppingplatformfx.Controllers.AdminPageController"
-            prefHeight="400.0" prefWidth="600.0">
+            prefWidth="1380" prefHeight="780">
 
-</AnchorPane>
+    <center>
+        <VBox spacing="10">
+            <Label text="Tables" />
+
+            <ComboBox fx:id="allTables" promptText="Choose a table to view:"/>
+
+            <Label fx:id="h1"/>
+            <VBox fx:id="tableResults" spacing="10" visible="false" managed="false">
+                <TableView fx:id="tableDisplay"/>
+                <HBox>
+                    <padding>
+                        <Insets topRightBottomLeft="20"/>
+                    </padding>
+                    <VBox fx:id="AddRow">
+                        <Button text="Add"/>
+                    </VBox>
+                    <VBox fx:id="UpdateRow">
+                        <Button text="Update"/>
+                    </VBox>
+                    <VBox fx:id="DeleteRow">
+                        <Button text="Delete"/>
+                    </VBox>
+                </HBox>
+            </VBox>
+
+            <Label fx:id="error" visible="false" style="-fx-text-fill: red"/>
+        </VBox>
+    </center>
+
+
+</BorderPane>

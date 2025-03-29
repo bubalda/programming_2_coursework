@@ -5,70 +5,107 @@
 <?import javafx.scene.layout.*?>
 
 <?import javafx.geometry.Insets?>
-<BorderPane fx:id="root" stylesheets="@LoginPrompt.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bubalda.shoppingplatformfx.Controllers.LoginPromptController">
-    <center>
-        <StackPane>
-            <HBox fx:id="registerBox"> <!-- Register Page (Initially Hidden) -->
-                <ImageView fx:id="logo2" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                    <Image url="@../images/logo.png" />
-                </ImageView>
+<StackPane styleClass="Root" stylesheets="@../root.css, @LoginPrompt.css" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bubalda.shoppingplatformfx.Controllers.LoginPromptController">
+    <!-- Register Page (Initially Hidden) -->
+    <HBox fx:id="registerBox">
+        <ImageView fx:id="logo2" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+            <Image url="@../_images/logo.png" />
+        </ImageView>
 
-                <VBox styleClass="mainVBox" alignment="CENTER_LEFT" spacing="15">
-                    <Label text="Register" style="-fx-font-size: 25; -fx-font-weight: bold"/>
-                    <VBox spacing="5">
-                        <Label text="Enter New Username:" />
-                        <TextField fx:id="registerUsername" text="Admin" styleClass="textBoxes"/>
-                    </VBox>
+        <VBox styleClass="mainVBox">
+            <Label text="Register" styleClass="H3"/>
+            <VBox spacing="5">
+                <Label text="Enter New Username:" />
+                <TextField fx:id="registerUsername" styleClass="TextBoxes"/>
+            </VBox>
 
-                    <VBox spacing="5">
-                        <Label text="Enter New Password:" />
-                        <PasswordField fx:id="registerPassword" text="Password" styleClass="textBoxes"/>
-                    </VBox>
+            <VBox spacing="5">
+                <Label text="Enter New Password:" />
+                <PasswordField fx:id="registerPassword" styleClass="TextBoxes"/>
+            </VBox>
 
-                    <VBox spacing="5">
-                        <Label text="Confirm New Password:" />
-                        <PasswordField fx:id="confirmPassword" text="Password" styleClass="textBoxes"/>
-                    </VBox>
+            <VBox spacing="5">
+                <Label text="Confirm New Password:" />
+                <PasswordField fx:id="registerConfirmPassword" styleClass="TextBoxes"/>
+            </VBox>
 
-                    <HBox spacing="5" alignment="CENTER">
-                        <Button text="Sign Up" onAction="#registerNewAccount" styleClass="pageButton"/>
-                        <Button text="Back to Login" onAction="#switchToLogin" styleClass="pageButton"/>
-                    </HBox>
-
-                    <Label fx:id="registerInfo" styleClass="reportInfo"/>
-                </VBox>
+            <HBox spacing="5" alignment="CENTER">
+                <Button text="Sign Up" onAction="#registerNewAccount" styleClass="pageButton"/>
+                <Button text="Back to Login" onAction="#switchToLoginFromRegister" styleClass="pageButton"/>
             </HBox>
 
-            <!--Forgot password here? Later first-->
+            <Label fx:id="registerInfo" styleClass="reportInfo"/>
+        </VBox>
+    </HBox>
 
-            <VBox fx:id="loginBox" styleClass="mainVBox"> <!--Login Box-->
-                <ImageView fx:id="logo" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                    <Image url="@../images/logo.png" />
-                </ImageView>
-
-                <VBox spacing="5">
-                    <Label text="Username:" />
-                    <TextField fx:id="loginUsername" text="Admin" styleClass="textBoxes"/>
-                </VBox>
-
-                <VBox spacing="5">
-                    <Label text="Password:" />
-                    <PasswordField fx:id="loginPassword" text="Password" styleClass="textBoxes"/>
-                </VBox>
-                <!--Cloudflare?-->
-
-                <!-- Login Button and Error | Forgot password? Remember me-->
-                <Button fx:id="loginBtn" onAction="#authenticateUser" text="Login" styleClass="pageButton"/>
-                <!--See this https://stackoverflow.com/questions/30680570/javafx-button-border-and-hover-->
-
-                <VBox spacing="5" alignment="CENTER">
-                    <HBox alignment="CENTER">
-                        <Label text="Don't have an account yet? " />
-                        <Label fx:id="registerLink" onMouseClicked="#switchToRegister" text="Create one now here!" />
-                    </HBox>
-                    <Label fx:id="loginInfo" styleClass="reportInfo"/>
-                </VBox>
+    <!--Forgot (Password) Box (Initially Hidden) [Email auth?]-->
+    <HBox fx:id="forgotBox">
+        <VBox styleClass="mainVBox">
+            <Label text="Forgot Password" styleClass="H3"/>
+            <VBox spacing="5">
+                <Label text="Enter Your Username:" />
+                <TextField fx:id="forgotUsername" styleClass="TextBoxes"/>
             </VBox>
-        </StackPane>
-    </center>
-</BorderPane>
+
+            <VBox spacing="5">
+                <Label text="Enter Your New Password:" />
+                <PasswordField fx:id="forgotPassword" styleClass="TextBoxes"/>
+            </VBox>
+
+            <VBox spacing="5">
+                <Label text="Confirm Your New Password:" />
+                <PasswordField fx:id="forgotConfirmPassword" styleClass="TextBoxes"/>
+            </VBox>
+
+            <HBox spacing="5" alignment="CENTER">
+                <Button text="Update Password" onAction="#updateForgottenAccount" styleClass="pageButton"/>
+                <Button text="Back to Login" onAction="#switchToLoginFromForgot" styleClass="pageButton"/>
+            </HBox>
+
+            <Label fx:id="forgotInfo" styleClass="reportInfo"/>
+        </VBox>
+
+        <ImageView fx:id="logo3" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+            <Image url="@../_images/logo.png" />
+        </ImageView>
+    </HBox>
+
+    <!--Login Box-->
+    <VBox fx:id="loginBox" styleClass="mainVBox">
+        <ImageView fx:id="logo" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+            <Image url="@../_images/logo.png" />
+        </ImageView>
+
+        <VBox spacing="5">
+            <Label text="Username:" />
+            <TextField fx:id="loginUsername" styleClass="TextBoxes"/>
+        </VBox>
+
+        <VBox spacing="5">
+            <Label text="Password:" />
+            <PasswordField fx:id="loginPassword" styleClass="TextBoxes"/>
+        </VBox>
+
+        <Button fx:id="loginBtn" onAction="#authenticateUser" text="Login" styleClass="pageButton"/>
+        <!--See this https://stackoverflow.com/questions/30680570/javafx-button-border-and-hover-->
+
+        <VBox spacing="10" alignment="CENTER">
+            <HBox alignment="CENTER">
+                <Label text="Don't have an account yet? " />
+                <Label fx:id="registerLink" onMouseClicked="#switchToRegister" text="Create one now here!" styleClass="linkLabel"/>
+            </HBox>
+            <HBox alignment="CENTER">
+                <Label onMouseClicked="#switchToForgot" text="Forgot Password?" styleClass="linkLabel"/>
+            </HBox>
+            <Label fx:id="loginInfo" styleClass="reportInfo"/>
+        </VBox>
+    </VBox>
+
+<!--            <ImageView fx:id="transitionLogo" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" visible="false">-->
+<!--                <Image url="@../images/logo.png" />-->
+<!--            </ImageView>-->
+</StackPane>
+
+
+<!--TODO: Forgot password need ask her see if can simply do or just a demonstration-->
+<!--TODO: Password Must be >8 chars that kind of stuff?-->

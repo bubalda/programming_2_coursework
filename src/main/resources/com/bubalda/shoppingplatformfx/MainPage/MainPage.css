@@ -1,17 +1,89 @@
-.menu-button .arrow-button {
-    -fx-padding: 0;
+.menu-bar {
     -fx-background-color: transparent;
-    -fx-shape: "";
+}
+.menu-bar:hover, .menu-bar:showing, .menu-bar:focused {
+    -fx-background-color: transparent;
 }
 
-.menu-button {
-    -fx-background-color: transparent;
+.menu {
     -fx-padding: 10px;
-    -fx-border-color: transparent;
+    -fx-translate-x: -10;
+    -fx-pref-width: 130px;
+    -fx-text-alignment: center;
+    -fx-background-color: transparent;
+}
+.menu:hover, .menu:showing, .menu:focused {
+    -fx-background-color: #ffae00;
 }
 
 .menu-item {
+    -fx-pref-width: 125px;
     -fx-background-color: transparent;
     -fx-padding: 10px;
+    -fx-background-radius: 5;
+}
+.menu-item:hover, .menu-item:showing, .menu-item:focused {
+    -fx-background-color: #ffcb00;
+    -fx-text-fill: black;
+}
+
+.body {
+    -fx-background-color: #fff18e;
+}
+
+.header {
+    -fx-padding: 10;
+    -fx-alignment: center;
+    -fx-spacing: 50;
+    -fx-background-color: #fdc900;
+    -fx-font-size: 15;
+    -fx-border-width: 3px;
+    -fx-border-color: #ffa600;
+    /*-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);*/
+}
+
+
+/** {*/
+/*    -fx-border-color: red;*/
+/*    -fx-border-width: 2px;*/
+/*}*/
+
+#bannerArrows > .button {
+    -fx-font-size: 20;
+    -fx-background-color: #ffcb00;
+    -fx-text-fill: white;
+    -fx-border-radius: 5;
+}
+
+.bannerPane {
+    -fx-padding: 20;
+    -fx-background-color: #ffe069;
+    -fx-border-width: 0;
+}
+
+.displayVBox {
+    -fx-spacing: 25;
+    -fx-alignment: center;
+}
+
+#allProductGridPane {
+    -fx-alignment: center;
+    -fx-hgap: 50;
+    -fx-vgap: 50;
+}
+
+.productBox {
+    -fx-border-width: 1px;
     -fx-border-color: transparent;
+    -fx-border-radius: 10px;
+    -fx-background-color: white;
+    -fx-background-radius: 10px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.15), 10, 0, 0, 5);
+}
+.productBox > .label {
+    -fx-padding: 5;
+    -fx-wrap-text: true;
+}
+.productDetails {
+    -fx-padding: 5;
 }

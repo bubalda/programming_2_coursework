@@ -1,0 +1,67 @@
+/* Target the entire scrollbar */
+.scroll-bar {
+    -fx-background-color: transparent;
+}
+
+/* Scrollbar track (background) */
+.scroll-bar .track {
+    -fx-background-color: #ffe06b;
+    -fx-border-color: #ddd;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+}
+
+/* Scrollbar thumb (draggable part) */
+.scroll-bar .thumb {
+    -fx-background-color: #fdc900; /* Yellow */
+    -fx-background-radius: 5;
+    -fx-pref-height: 10px; /* Adjust thickness */
+}
+
+/* Change thumb color on hover */
+.scroll-bar .thumb:hover {
+    -fx-background-color: #ffb700; /* Darker yellow */
+}
+
+/* Scrollbar buttons (arrows) */
+.scroll-bar .increment-button,
+.scroll-bar .decrement-button {
+    -fx-background-color: #fdc900;
+}
+
+/* Hide scrollbar arrows */
+.scroll-bar .increment-button,
+.scroll-bar .decrement-button {
+    -fx-opacity: 0;
+    -fx-padding: 0;
+}
+
+.Root {
+    -fx-background-color: #fff18e;
+    -fx-pref-width: 1380px;
+    -fx-pref-height: 780px;
+    -fx-font-size: 15px;
+}
+
+/**:focused {*/
+/*    -fx-border-color: #fdc900;*/
+/*    -fx-faint-focus-colossssr: #fdc900;*/
+/*}*/
+
+.TextBoxes {
+    -fx-min-width: 350px;
+}
+.TextBoxes:focused {
+    -fx-border-color: #fdad00;
+    -fx-faint-focus-color: #fdad00;
+}
+
+.Clickable:hover {
+    -fx-cursor: hand;
+}
+
+.H3 {
+    -fx-font-size: 25;
+    -fx-font-weight: bold;
+    -fx-text-fill: black;
+}

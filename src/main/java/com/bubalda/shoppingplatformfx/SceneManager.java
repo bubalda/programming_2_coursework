@@ -10,28 +10,31 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-/** A singleton class which manages scene transitions, derived from GitHub
- * For session cookies mainly?????
- * But harder tho*/
+/** A singleton class which manages scene transitions, derived from GitHub*/
 public class SceneManager {
     private SceneManager() {}; // Constructor override
     private static SceneManager instance = null; // Lazy initialization (singleton)
     private Stage primaryStage;
     public Scene currentScene;
+
+    public int userID;
+    public int productID;
+
 //    public Stack<Scene> sceneStack = new Stack<>();
 
     public static final Map<String, String> SCENES = new HashMap<>(Map.of(
             "login", "LoginPrompt.fxml",
-            "register", "RegisterPrompt.fxml",
 
             "main", "MainPage.fxml",
             "profile", "AccountProfile.fxml",
             "search", "SearchResults.fxml",
+            "product", "ProductDetails.fxml",
+//            "redeem", "RedeemPage.fxml",
 
             "cart", "ShoppingCart.fxml",
-            "checkout", "CheckOut.fxml",
+            "checkout", "CheckOut.fxml", // clear cache
 
-            "admin", "AdminPage.fxml" // + other special elements from other pages that only admin sees
+            "admin", "AdminPage.fxml" // + other special elements from other pages that only admin sees (enter from main page)
     ));
 
     public static SceneManager getInstance() {

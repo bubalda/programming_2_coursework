@@ -1,64 +1,81 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.layout.*?>
+
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
 <?import org.kordamp.ikonli.javafx.*?>
 
-<!---->
+<BorderPane stylesheets="@../root.css, @MainPage.css" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.bubalda.shoppingplatformfx.Controllers.MainPageController"
+            styleClass="Root">
 
-<BorderPane stylesheets="@MainPage.css" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bubalda.shoppingplatformfx.Controllers.MainPageController">
-    <top>
-        <VBox alignment="CENTER" spacing="10">
-            <HBox alignment="CENTER" spacing="100" style="-fx-border-color: black">
-                <!--Dashboard, Stay on top even when scrolled, minimize to left for android-->
-                <ImageView fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
-                    <Image url="@../images/logo.png" />
+        <top>
+            <ToolBar fx:id="header" styleClass="header">
+                <ImageView fitWidth="50.0" pickOnBounds="true" preserveRatio="true" styleClass="Clickable" onMouseClicked="#scrollToTop" fx:id="logo">
+                    <Image url="@../_images/logo.png"/>
                 </ImageView>
 
-                <!--Some sales (link down, no need new pages / or like Lazada)-->
-                <Label text="Promotions" />
+                <Label onMouseClicked="#navToProducts" text="DuckMall" styleClass="Clickable"/>
 
-                <!--For you, Recently bought, and other products, Categories-->
-                <Label text="Products" />
-
-                <!--Current points, Mcd refer-->
-                <Label text="Redeem" />
-
-                <StackPane alignment="CENTER_RIGHT">
-                    <!--Normal search bar dynamic, search content (array?)-->
-                    <TextField fx:id="searchBar" onKeyTyped="#search" promptText="What's on your mind today?" /> <!--Greyish-->
-                    <FontIcon iconLiteral="bi-search" translateX="-10" />
+                <StackPane alignment="CENTER_RIGHT" styleClass="Clickable">
+                    <TextField fx:id="searchBar" onKeyReleased="#searchCompletion"
+                               promptText="What's on your mind today?"
+                               styleClass="TextBoxes"/>
+                    <FontIcon iconLiteral="bi-search" translateX="-10"/>
                 </StackPane>
 
                 <!--Cart and checkout (Red popups)-->
-                <Label onMouseClicked="#redirectToCart" alignment="CENTER_RIGHT">
+                <Label styleClass="Clickable" alignment="CENTER_RIGHT" onMouseClicked="#redirectToCart">
                     <graphic>
                         <FontIcon iconLiteral="bi-cart2" iconSize="25"/>
                     </graphic>
                 </Label>
 
                 <!--Dropdown to settings, logout and account profile wallet-->
-
-                <MenuButton text="Accounts" alignment="CENTER_RIGHT">
-                    <graphic>
-                        <FontIcon iconLiteral="bi-person-fill" iconSize="25" />
-                    </graphic>
-                    <items>
-                        <MenuItem text="Account"/>
-                        <MenuItem text="Settings"/>
+                <MenuBar styleClass="Clickable">
+                    <Menu text="Account" fx:id="accountMenu">
+                        <graphic>
+                            <FontIcon iconLiteral="bi-person-fill" iconSize="25"/>
+                        </graphic>
+                        <MenuItem text="Account" onAction="#redirectToAccount"/>
                         <MenuItem text="Logout" onAction="#redirectToLogin"/>
-                    </items>
-                </MenuButton>
-            </HBox>
+                    </Menu>
+                </MenuBar>
+            </ToolBar>
+        </top>
 
-            <ImageView fitHeight="300.0" pickOnBounds="true" preserveRatio="true">
-                <Image url="@../images/banner.png" /> <!--Slideshow-->
-            </ImageView>
-        </VBox>
-    </top>
+        <center>
+            <ScrollPane fitToWidth="true" pannable="true" fx:id="mainScrollPane">
+                <VBox alignment="CENTER" spacing="30" styleClass="body">
+                    <StackPane styleClass="bannerPane">
+                        <ImageView fx:id="banner" fitHeight="300" pickOnBounds="true" preserveRatio="true"/>
+                        <HBox alignment="CENTER" fx:id="bannerArrows">
+                            <Button text="◀" onAction="#prevBanner"/>
+                            <Button text="▶" onAction="#nextBanner"/>
+                        </HBox>
+                    </StackPane>
 
-   <center>
-
-   </center>
+                    <VBox styleClass="displayVBox">
+                        <Label fx:id="allProductLabel" text="DuckMall" styleClass="H3"/>
+                        <GridPane fx:id="allProductGridPane"/>
+                    </VBox>
+                </VBox>
+            </ScrollPane>
+        </center>
 </BorderPane>
+
+        <!--                <Label onMouseClicked="#navToRecommendations" text="For you" styleClass="Clickable"/>-->
+        <!--                <Label onMouseClicked="#navToDeals" text="Promotions and Deals" styleClass="Clickable"/>-->
+
+        <!--                <Label text="Redeem" onMouseClicked="#redirectToRedeem"/>-->
+
+        <!--                    <VBox styleClass="displayVBox">-->
+        <!--                        <Label fx:id="forYouLabel" text="For You" styleClass="h3"/>-->
+        <!--                        <GridPane fx:id="forYouGridPane"/>-->
+        <!--                    </VBox>-->
+        <!--                    <VBox styleClass="displayVBox">-->
+        <!--                        <Label fx:id="promotionLabel" text="Promotion and deals" styleClass="h3"/>-->
+        <!--                        <GridPane fx:id="promotionGridPane"/>-->
+        <!--                    </VBox>-->
